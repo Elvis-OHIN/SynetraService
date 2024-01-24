@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -8,6 +8,7 @@ using System.Drawing.Imaging;
 using System.Drawing;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using SynetraService.Models;
 using Newtonsoft.Json;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -36,7 +37,7 @@ namespace SynetraService.Remote
                 using (var httpClient = new HttpClient())
                 {
                     // Remplacez cette URL par l'URL de votre service .NET
-                    string serviceUrl = "https://localhost:7082/ShareScreen/cartemere";
+                    string serviceUrl = $"https://localhost:7082/api/ShareScreen/{SystemInfo.GetMotherboardInfo()}";
                     byte[] imageBytes;
                     using (MemoryStream ms = new MemoryStream())
                     {
